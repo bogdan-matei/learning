@@ -1,6 +1,7 @@
 package repository;
 
 import java.sql.Connection;
+import java.util.List;
 
 public interface CrudRepository<T> {
 
@@ -12,4 +13,5 @@ public interface CrudRepository<T> {
 
     boolean delete(Integer id, Connection con);
 
+    List<T> getAll(Connection con);
 }

@@ -8,9 +8,11 @@
     <artifactId>alchemy_am</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>war</packaging>
+
     <dependencies>
         <dependency>
-            <groupId>mysql</groupId>
+            <groupId> mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.3</version>
         </dependency>
@@ -33,6 +35,19 @@
             <artifactId>mockito-all</artifactId>
             <version>1.10.19</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
         </dependency>
     </dependencies>
 

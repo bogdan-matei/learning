@@ -3,6 +3,7 @@ package repository;
 import inventory.BasicStorage;
 
 import java.sql.Connection;
+import java.util.List;
 
 public class BasicStorageRepository implements CrudRepository<BasicStorage> {
 
@@ -24,5 +25,10 @@ public class BasicStorageRepository implements CrudRepository<BasicStorage> {
     @Override
     public boolean delete(Integer id, Connection con) {
         return false;
+    }
+
+    @Override
+    public List<BasicStorage> getAll(Connection con) {
+        return null;
     }
 }

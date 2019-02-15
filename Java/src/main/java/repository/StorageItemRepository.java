@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StorageItemRepository implements CrudRepository<StorageItem> {
 
@@ -82,5 +84,30 @@ public class StorageItemRepository implements CrudRepository<StorageItem> {
             result = false;
         }
         return result;
+    }
+
+    @Override
+    public List<StorageItem> getAll(Connection con) {
+        List<StorageItem> swordList = new ArrayList<>();
+        ResultSet rs = null;
+        try {
+            PreparedStatement stmt = DbConnection.getConnection().prepareStatement("SELECT * FROM storage_item");
+            rs = stmt.executeQuery();
+
+            while(rs.next()){
+                Sword sword = new Sword();
+                sword.setName(rs.getString("name"));
+                swordList.add(sword);
+            }
+
+        } catch (SQLException e) {
+        } finally {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return swordList;
     }
 }

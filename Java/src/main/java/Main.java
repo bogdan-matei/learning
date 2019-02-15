@@ -24,6 +24,7 @@ public class Main {
 
         Connection con = DbConnection.getConnection();
 
+        itemRepositoryExample(con);
 
         try {
             DbConnection.getConnection().close();
@@ -61,21 +62,21 @@ public class Main {
                 transformerObject.getItemStorage() + "\n\n";
     }
 
-    public void itemRepositoryExample(Connection con) {
+    public static void itemRepositoryExample(Connection con) {
         StorageItemRepository itemRepository = new StorageItemRepository();
 
         Sword trainingSword = new Sword();
-        trainingSword.setName("Training Sword");
+        trainingSword.setName("AM Sword");
 
         itemRepository.create(trainingSword, con);
 
-        trainingSword.setName("Knight Sword");
+        trainingSword.setName("Dev Sword");
         itemRepository.update(2, trainingSword, con);
 
         Sword sword = (Sword) itemRepository.read(2, con);
         System.out.println(sword.toString() + sword.getName());
 
-        itemRepository.delete(2, con);
+        itemRepository.delete(3, con);
     }
 
     public void genericExample() {
